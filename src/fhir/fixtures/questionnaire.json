@@ -1,0 +1,38 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "pa-auth-q",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-dtr/StructureDefinition/dtr-questionnaire-r4"
+    ]
+  },
+  "url": "http://localhost:3002/fhir/r4/Questionnaire/pa-auth-q",
+  "status": "active",
+  "title": "Prior Authorization Documentation",
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Is this service medically necessary?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "2",
+      "text": "Primary diagnosis code (ICD-10)",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "3",
+      "text": "Treating physician NPI",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "4",
+      "text": "Requested quantity / units",
+      "type": "integer",
+      "required": true
+    }
+  ]
+}

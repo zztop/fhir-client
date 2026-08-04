@@ -1,0 +1,60 @@
+{
+  "resourceType": "Practitioner",
+  "id": "test-practitioner-001",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1234567890"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "TestDoctor",
+      "given": ["Alice"],
+      "prefix": ["Dr."]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "555-234-5678",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["456 Clinic Ave"],
+      "city": "Springfield",
+      "state": "IL",
+      "postalCode": "62702",
+      "country": "US"
+    }
+  ],
+  "qualification": [
+    {
+      "identifier": [
+        {
+          "system": "http://hl7.org/fhir/sid/us-npi",
+          "value": "1234567890"
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360|2.7",
+            "code": "MD",
+            "display": "Doctor of Medicine"
+          }
+        ]
+      }
+    }
+  ]
+}

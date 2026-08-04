@@ -1,0 +1,51 @@
+services:
+  hapi-fhir:
+    image: hapiproject/hapi:latest
+    ports:
+      - "8080:8080"
+    environment:
+      hapi.fhir.fhir_version: R4
+      hapi.fhir.allow_multiple_delete: "true"
+      hapi.fhir.reuse_cached_search_results_millis: "-1"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/fhir/metadata"]
+      interval: 15s
+      timeout: 10s
+      retries: 15
+      start_period: 60s
+
+  cds-server:
+    build: .
+    command: uvicorn src.payer.cds_hooks_server:app --host 0.0.0.0 --port 3001 --reload
+    ports:
+      - "3001:3001"
+    env_file: .env
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      hapi-fhir:
+        condition: service_healthy
+
+  dtr-server:
+    build: .
+    command: uvicorn src.payer.dtr_server:app --host 0.0.0.0 --port 3002 --reload
+    ports:
+      - "3002:3002"
+    env_file: .env
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      hapi-fhir:
+        condition: service_healthy
+
+  pas-server:
+    build: .
+    command: uvicorn src.payer.pas_server:app --host 0.0.0.0 --port 3003 --reload
+    ports:
+      - "3003:3003"
+    env_file: .env
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      hapi-fhir:
+        condition: service_healthy

@@ -1,0 +1,23 @@
+[
+  {
+    "code": "1049502",
+    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+    "scenario": "pa-required",
+    "display": "Oxycodone 5mg",
+    "order_resource": "MedicationRequest"
+  },
+  {
+    "code": "85025",
+    "system": "http://www.ama-assn.org/go/cpt",
+    "scenario": "pa-not-required",
+    "display": "CBC with differential",
+    "order_resource": "ServiceRequest"
+  },
+  {
+    "code": "33533",
+    "system": "http://www.ama-assn.org/go/cpt",
+    "scenario": "auth-pending",
+    "display": "CABG, arterial, single",
+    "order_resource": "ServiceRequest"
+  }
+]
