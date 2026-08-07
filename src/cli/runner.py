@@ -79,8 +79,7 @@ def _is_pa_needed(response: CDSHookResponse) -> bool:
 
 def _print_cards(hook: str, scenario_key: str, response: CDSHookResponse) -> None:
     ICONS = {"info": "ℹ", "warning": "⚠", "critical": "✖"}
-    print(f"
-{'═'*57}")
+    print(f"\n{'═'*57}")
     print(f"  Hook: {hook:<20} Scenario: {scenario_key}")
     print(f"{'─'*57}")
     if not response.cards:

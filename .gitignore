@@ -12,3 +12,12 @@ build/
 .pytest_cache/
 htmlcov/
 .coverage
+sessions.db
+sessions.db-wal
+sessions.db-shm
+
+node_modules/
+ui/dist/
+*.tsbuildinfo
+
+.dev/
